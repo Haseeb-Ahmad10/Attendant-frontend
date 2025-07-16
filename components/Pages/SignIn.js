@@ -35,8 +35,8 @@ const SignIn = function () {
 
     return <div className={classes['signin-container']}>
         <h2>SignIn</h2>
-        <form>
-            <div>
+        <form onSubmit={handleSubmit}>
+            <div className={classes['form-group']} >
                 <label htmlFor='username'>Username:</label>
                 <input
                  type='text'
@@ -44,9 +44,9 @@ const SignIn = function () {
                  required
                  value={username}
                  onChange={(e) => {e.target.value}} />
-                 {error && <div>{error}</div>}
+                 {error && <div className={classes["error-message"]}>{error}</div>}
             </div>
-            <div>
+            <div className={classes['form-group']}>
                 <label htmlFor='PIN'>PIN Code:</label>
                 <input
                  type='password'
@@ -55,7 +55,7 @@ const SignIn = function () {
                  value={PIN} 
                  onChange={(e) => {e.target.value}}
                  />
-                 {error && <div>{error}</div>}
+                 {error && <div className={classes["error-message"]}>{error}</div>}
             </div>
             <div>
                 <button type='submit'>Sign In</button>
