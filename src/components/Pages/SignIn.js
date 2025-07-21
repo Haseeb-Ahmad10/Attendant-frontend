@@ -8,7 +8,6 @@ const SignIn = () => {
     const [username, setUsername] = useState('');
     const [PIN, setPIN] = useState('');
     const [error, setError] = useState('');
-    // const [LoggedIn, setLoggedIn] = useState(false);
 
     const navigate = useNavigate()
 
@@ -25,7 +24,6 @@ const SignIn = () => {
         const correctPIN = storedNewPIN ? storedNewPIN : defaultPIN;
         
         if( username === defaultUsername && PIN === correctPIN) {
-            // setLoggedIn(true);
             const hasChangedPassword = localStorage.getItem('hasChangedPassword')
             if(hasChangedPassword === 'true') {
                 navigate('/dashboard')
@@ -39,20 +37,6 @@ const SignIn = () => {
 
     
 
-    // const handleLogOut = () => {
-    //     setLoggedIn(false);
-    //     setUsername('');
-    //     setPIN('');
-    //     setError('');
-    // }
-
-    // if (LoggedIn) {
-    //     return <div>
-    //         <h2>Welcome, {username}!</h2>
-    //         <button onClick={handleLogOut}>Log Out</button>
-    //     </div>
-    // }
-
     return (
     <React.Fragment>
         <Header />
@@ -60,7 +44,6 @@ const SignIn = () => {
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
             <div className={classes['form-group']} >
-                {/* <label htmlFor='username'>Username:</label> */}
                 <input
                  type='text'
                  id='username'
@@ -71,7 +54,6 @@ const SignIn = () => {
                  {error && <div className={classes["error-message"]}>{error}</div>}
             </div>
             <div className={classes['form-group']}>
-                {/* <label htmlFor='PIN'>PIN Code:</label> */}
                 <input
                  type='password'
                  id='PIN'
