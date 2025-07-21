@@ -295,7 +295,7 @@
 /* Apply for Leave Button */
 .apply-leave-btn {
   position: fixed;
-  bottom: 30px;
+  bottom: 50px;
   right: 30px;
   background-color: #4a90e2;
   color: white;

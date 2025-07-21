@@ -99,7 +99,7 @@ const AttendanceUI = () => {
 
 
       {/* Apply for Leave Button */}
-      <button className="apply-leave-btn">
+      <button className={classes['apply-leave-btn']}>
         APPLY FOR LEAVE +
       </button>
     </div>
