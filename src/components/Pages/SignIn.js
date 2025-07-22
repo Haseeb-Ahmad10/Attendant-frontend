@@ -11,12 +11,12 @@ const SignIn = () => {
 
     const navigate = useNavigate()
 
-
     const handleSubmit = (event) => {
         event.preventDefault(); 
 
         setError('')
 
+        // changing password when user signs in first time   
         const defaultUsername = 'admin';
         const defaultPIN = '0000';
         const storedNewPIN = localStorage.getItem('mockUserPassword');
@@ -33,9 +33,15 @@ const SignIn = () => {
         } else {
             setError('Invalid credentials');
         }
-    }
 
-    
+
+
+        // Render the Admin dashboard 
+        if(username === 'haseeb' && PIN === '1234') {
+        navigate('/admin-dashboard');
+    }
+    }
+  
 
     return (
     <React.Fragment>

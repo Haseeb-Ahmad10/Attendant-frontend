@@ -2,12 +2,20 @@ import React, { useState } from 'react';
 import classes from  './UserDashboard.module.css';
 import LetterAvatars from '../UI/Avatars';
 import PaginationTable from '../UI/Pagination';
+import { useNavigate } from 'react-router-dom';
 
 
 // AttendanceUI Component
 const AttendanceUI = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('Status');
+
+  const navigate = useNavigate();
+
+  const attendanceColumns = [
+    { id: 'date', label: 'Date' },
+    { id: 'status', label: 'Status' },
+  ];
 
   const attendanceData = [
     { date: '03/03/2022', status: 'Present' },
@@ -23,18 +31,23 @@ const AttendanceUI = () => {
     { date: '27/02/2022', status: 'Present' },
   ];
 
-  // Filter the attendance data based on search term and status filter
-  const filteredData = attendanceData.filter(record => {
-    const matchesSearch = searchTerm === '' || 
-      record.date.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      record.status.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesStatus = statusFilter === 'Status' || 
-      record.status === statusFilter;
-    
-    return matchesSearch && matchesStatus;
-  });
+  const filterFn = (row) => {
+    const matchesSearch = searchTerm === '' ||
+    row.date.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    row.status.toLowerCase().includes(searchTerm.toLowerCase());
 
+    const matchesStatus = statusFilter === 'Status' ||
+    row.status === statusFilter
+
+    return matchesSearch && matchesStatus;
+  };
+
+
+  const handleLogout = () => {
+    localStorage.removeItem('mockUserPassword');
+    navigate('/');
+
+  };
 
   
   return (
@@ -89,18 +102,21 @@ const AttendanceUI = () => {
               <button className={classes['filter-btn']}>≡</button>
             </div>
           </div>
-        </div>
-
-        
+        </div>  
       </div> 
 
       {/* Pagination Component */}
-      <PaginationTable data={filteredData} rowsPerPageOptions={[5, 10, 25]} defaultRowsPerPage={5} />
+      <PaginationTable columns={attendanceColumns} rows={attendanceData} filterFn={filterFn}  />
 
 
       {/* Apply for Leave Button */}
       <button className={classes['apply-leave-btn']}>
         APPLY FOR LEAVE +
+      </button>
+      
+      {/* Logout button */}
+      <button onClick={handleLogout} className={classes['logout-btn']}>
+        LOGOUT
       </button>
     </div>
   );
