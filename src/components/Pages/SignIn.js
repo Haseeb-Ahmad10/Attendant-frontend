@@ -34,8 +34,6 @@ const SignIn = () => {
             setError('Invalid credentials');
         }
 
-
-
         // Render the Admin dashboard 
         if(username === 'haseeb' && PIN === '1234') {
         navigate('/admin-dashboard');
