@@ -182,42 +182,6 @@
 }
 
 
-/* Pagination Styles */
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 30px;
-}
-
-.pagination-btn {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  background-color: white;
-  color: #666;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: all 0.2s;
-  min-width: 40px;
-}
-
-.pagination-btn:hover:not(:disabled) {
-  background-color: #f5f5f5;
-  border-color: #ccc;
-}
-
-.pagination-btn.active {
-  background-color: #4a90e2;
-  color: white;
-  border-color: #4a90e2;
-}
-
-.pagination-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 /* Apply for Leave Button */
 .apply-leave-btn {
   position: fixed;
