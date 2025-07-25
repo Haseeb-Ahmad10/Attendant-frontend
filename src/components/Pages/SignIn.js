@@ -11,33 +11,61 @@ const SignIn = () => {
 
     const navigate = useNavigate()
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault(); 
+         setError('')
 
-        setError('')
+        // fetching api from backend for login
+        try {
 
-        // changing password when user signs in first time   
-        const defaultUsername = 'admin';
-        const defaultPIN = '0000';
-        const storedNewPIN = localStorage.getItem('mockUserPassword');
+            const response = await fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, PIN }),
+            });
 
-        const correctPIN = storedNewPIN ? storedNewPIN : defaultPIN;
-        
-        if( username === defaultUsername && PIN === correctPIN) {
-            const hasChangedPassword = localStorage.getItem('hasChangedPassword')
-            if(hasChangedPassword === 'true') {
+            const data = await response.json()
+            if (response.ok) {
+                console.log('Login successful:')
+                console.log(data.token)
                 navigate('/dashboard')
             } else {
-                navigate('/change-password')
+                console.log(data.message);
+                setError(data.message || 'Invalid credentials');
             }
-        } else {
-            setError('Invalid credentials');
+
+        } catch (error) {
+            console.error('Error during login:', error);
+            setError('Login failed. Please try again later.');
         }
 
-        // Render the Admin dashboard 
-        if(username === 'haseeb' && PIN === '1234') {
-        navigate('/admin-dashboard');
-    }
+
+
+
+        // changing password when user signs in first time   
+        // const defaultUsername = 'admin';
+        // const defaultPIN = '0000';
+        // const storedNewPIN = localStorage.getItem('mockUserPassword');
+
+        // const correctPIN = storedNewPIN ? storedNewPIN : defaultPIN;
+        
+        // if( username === defaultUsername && PIN === correctPIN) {
+        //     const hasChangedPassword = localStorage.getItem('hasChangedPassword')
+        //     if(hasChangedPassword === 'true') {
+        //         navigate('/dashboard')
+        //     } else {
+        //         navigate('/change-password')
+        //     }
+        // } else {
+        //     setError('Invalid credentials');
+        // }
+
+        // // Render the Admin dashboard 
+        // if(username === 'haseeb' && PIN === '1234') {
+        // navigate('/admin-dashboard');
+        // }
     }
   
 
