@@ -40,31 +40,6 @@ const SignIn = () => {
             setError('Login failed. Please try again later.');
         }
 
-
-
-
-        // changing password when user signs in first time   
-        // const defaultUsername = 'admin';
-        // const defaultPIN = '0000';
-        // const storedNewPIN = localStorage.getItem('mockUserPassword');
-
-        // const correctPIN = storedNewPIN ? storedNewPIN : defaultPIN;
-        
-        // if( username === defaultUsername && PIN === correctPIN) {
-        //     const hasChangedPassword = localStorage.getItem('hasChangedPassword')
-        //     if(hasChangedPassword === 'true') {
-        //         navigate('/dashboard')
-        //     } else {
-        //         navigate('/change-password')
-        //     }
-        // } else {
-        //     setError('Invalid credentials');
-        // }
-
-        // // Render the Admin dashboard 
-        // if(username === 'haseeb' && PIN === '1234') {
-        // navigate('/admin-dashboard');
-        // }
     }
   
 
