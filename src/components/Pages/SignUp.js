@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import classes from './SignUp.module.css'
 import { useNavigate } from 'react-router-dom';
+import Header from '../Header/Header';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ const SignUp = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:3000/api/users/signup', formData);
+      const response = await axios.post('http://localhost:5000/api/users/signup', formData);
       
       // On successful signup, redirect to signin page
       if (response.data.message === 'User created successfully') {
@@ -46,6 +47,8 @@ const SignUp = () => {
     }
   };
   return (
+    <React.Fragment>
+        <Header/>
     <div className={classes['signup-container']}>
       <h2>Sign Up</h2>
       {error && <div className={classes['error-message']}>{error}</div>}
@@ -106,9 +109,10 @@ const SignUp = () => {
         </button>
       </form>
       <p>
-        Already have an account? <a href="/signin">Sign In</a>
+        Already have an account? <a href="/">Sign In</a>
       </p>
     </div>
+    </React.Fragment>
   );
 };
 
