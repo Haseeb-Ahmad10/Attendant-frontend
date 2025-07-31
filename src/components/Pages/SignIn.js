@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-// import { useNavigate} from 'react-router-dom';
 import classes from './SignIn.module.css';
 import Header from '../Header/Header';
 import { useAuth } from '../Context/AuthContext';
@@ -12,7 +11,6 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const { login } = useAuth()
-  // const navigate = useNavigate()
 
 
   const handleSubmit = async (e) => {
@@ -31,40 +29,6 @@ const SignIn = () => {
 
 
     return (
-    // <React.Fragment>
-    //     <Header />
-    // <div className={classes['signin-container']}>
-    //     <h2>Login</h2>
-    //     <form onSubmit={handleSubmit}>
-    //         <div className={classes['form-group']} >
-    //             <input
-    //              type='text'
-    //              id='username'
-    //              required
-    //              placeholder='Username'
-    //              value={username}
-    //              onChange={(e) => setUsername(e.target.value)} />
-    //              {error && <div className={classes["error-message"]}>{error}</div>}
-    //         </div>
-    //         <div className={classes['form-group']}>
-    //             <input
-    //              type='password'
-    //              id='PIN'
-    //              required
-    //              placeholder='PIN Code'
-    //              value={pin} 
-    //              onChange={(e) => setPin(e.target.value)}
-    //              />
-    //              {error && <div className={classes["error-message"]}>{error}</div>}
-    //         </div>
-    //         <div>
-    //             <button type='submit'>Sign In</button>
-    //             {/* {error && <div style={{ color: 'red' }}>{error}</div>} */}
-    //         </div>
-    //     </form>
-    // </div>
-    // </React.Fragment>
-
         <React.Fragment>
             <Header/>
     <div className={classes['signin-container']}>
