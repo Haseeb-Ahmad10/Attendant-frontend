@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import classes from  './UserDashboard.module.css';
 import LetterAvatars from '../UI/Avatars';
 import PaginationTable from '../UI/Pagination';
-// import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../Context/AuthContext';
 
 
@@ -42,13 +41,6 @@ const UserDashboard = () => {
 
     return matchesSearch && matchesStatus;
   };
-
-
-  // const handleLogout = () => {
-  //   localStorage.removeItem('mockUserPassword');
-  //   navigate('/');
-
-  // };
 
   
   return (
