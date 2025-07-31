@@ -33,7 +33,7 @@ const SignUp = () => {
       
       // On successful signup, redirect to signin page
       if (response.data.message === 'User created successfully') {
-        navigate('/signin', { 
+        navigate('/', { 
           state: { 
             signupSuccess: true,
             email: formData.email 

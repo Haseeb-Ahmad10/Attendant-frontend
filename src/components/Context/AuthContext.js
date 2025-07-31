@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -19,33 +19,33 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('token', response.data.token);
       setToken(response.data.token);
       setUser(response.data.user);
-      navigate('/dashboard');
+      navigate(response.data.redirectTo);
     } catch (error) {
-      throw error.response?.data?.error || 'Login failed';
+      throw error.response?.data?.message || 'Login failed';
     }
   };
 
-  const logout = () => {
+  const logout = useCallback( () => {
     localStorage.removeItem('token');
     setToken(null);
     setUser(null);
     navigate('/');
-  };
+  }, [setToken, setUser, navigate]);
 
-  useEffect(() => {
-    if (token) {
-      // Verify token and get user data if needed
-      axios.get('http://localhost:3000/api/protected', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      }).then(response => {
-        // You might want to update user data here
-      }).catch(() => {
-        logout();
-      });
-    }
-  }, [token]);
+//   useEffect(() => {
+//     if (token) {
+//       // Verify token and get user data if needed
+//       axios.get('http://localhost:3000/api/protected', {
+//         headers: {
+//           Authorization: `Bearer ${token}`
+//         }
+//       }).then(response => {
+//         // You might want to update user data here
+//       }).catch(() => {
+//         logout();
+//       }, [token, logout]);
+//     }
+//   }, );
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout }}>

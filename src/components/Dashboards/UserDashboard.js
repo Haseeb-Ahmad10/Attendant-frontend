@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import classes from  './UserDashboard.module.css';
 import LetterAvatars from '../UI/Avatars';
 import PaginationTable from '../UI/Pagination';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../Context/AuthContext';
 
 
 // AttendanceUI Component
-const AttendanceUI = () => {
+const UserDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('Status');
-
-  const navigate = useNavigate();
+  const { user, logout } = useAuth()
+  // const navigate = useNavigate();
 
   const attendanceColumns = [
     { id: 'date', label: 'Date' },
@@ -43,11 +44,11 @@ const AttendanceUI = () => {
   };
 
 
-  const handleLogout = () => {
-    localStorage.removeItem('mockUserPassword');
-    navigate('/');
+  // const handleLogout = () => {
+  //   localStorage.removeItem('mockUserPassword');
+  //   navigate('/');
 
-  };
+  // };
 
   
   return (
@@ -55,14 +56,15 @@ const AttendanceUI = () => {
       {/* Header */}
       <div className={classes.header}>
         <h1>Attendance</h1>
-        <LetterAvatars name={'Haseeb'} />
+        <LetterAvatars name={user?.name} />
+        
       </div>
 
       {/* Welcome Message */}
       <div className={classes['welcome-message']}>
         <div className={classes['info-icon']}>ℹ</div>
         <div className={classes['welcome-text']}>
-          <strong>Welcome back, Haseeb!</strong>
+          <strong>Welcome back, {user?.name}!</strong>
           <br />
           Are you ready to punch in your attendance?
         </div>
@@ -115,11 +117,11 @@ const AttendanceUI = () => {
       </button>
       
       {/* Logout button */}
-      <button onClick={handleLogout} className={classes['logout-btn']}>
+      <button onClick={logout} className={classes['logout-btn']}>
         LOGOUT
       </button>
     </div>
   );
 };
 
-export default AttendanceUI;
+export default UserDashboard;

@@ -5,20 +5,28 @@ import ChangePassword from './components/Pages/ChangePassword';
 import UserDashboard from './components/Dashboards/UserDashboard';
 import AdminDashboard from './components/Dashboards/AdminDashboard';
 import SignUp from './components/Pages/SignUp';
+import { AuthProvider } from './components/Context/AuthContext';
+import ProtectedRoute from './components/Pages/ProtectedRoute';
 
 function App() {
   return (
-    <React.Fragment>
+    // <React.Fragment>
     <Router>
+    <AuthProvider>
      <Routes>
       <Route path="/" element={<SignIn />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/change-password" element={<ChangePassword />} />
-      <Route path="/dashboard" element={<UserDashboard />} />
+      <Route path="/dashboard" element={
+        <ProtectedRoute>
+          <UserDashboard/>
+        </ProtectedRoute>
+      } />
       <Route path="/admin-dashboard" element={<AdminDashboard />} />
      </Routes>
-  </Router>
-  </React.Fragment>
+    </AuthProvider>
+    </Router>
+  // </React.Fragment>
   );
 }
 

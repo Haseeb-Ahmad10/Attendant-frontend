@@ -1,65 +1,19 @@
 import React from 'react';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
+// import { useNavigate} from 'react-router-dom';
 import classes from './SignIn.module.css';
 import Header from '../Header/Header';
+import { useAuth } from '../Context/AuthContext';
 
 const SignIn = () => {
-    // const [username, setUsername] = useState('');
-    // const [pin, setPin] = useState('');
-    // const [error, setError] = useState('');
-
-    // const navigate = useNavigate()
-
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault(); 
-    //      setError('')
-
-    //     // fetching api from backend for login
-    //     try {
-
-    //         const response = await fetch('http://localhost:5000/api/users/login', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({ username, pin }),
-    //         });
-
-    //         const data = await response.json()
-    //         if (response.ok && data.redirectTo) {
-    //             console.log('Login successful:')
-    //             navigate(data.redirectTo)
-    //         } else {
-    //             console.log(data.message);
-    //             setError(data.message || 'Invalid credentials');
-    //         }
-
-    //     } catch (error) {
-    //         console.error('Error during login:', error);
-    //         setError('Login failed. Please try again later.');
-    //     }
-
-    // }
-  
-
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const location = useLocation();
+  const { login } = useAuth()
+  // const navigate = useNavigate()
 
-  // Check for redirect from successful signup
-  useEffect(() => {
-    if (location.state?.signupSuccess) {
-      setEmail(location.state.email);
-      setError(''); // Clear any previous errors
-      // You could also show a success message
-      alert('Signup successful! Please sign in with your new account.');
-    }
-  }, [location.state]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,19 +21,9 @@ const SignIn = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', {
-        email,
-        password
-      });
-      
-      // Handle successful signin (store token, redirect, etc.)
-      console.log('Signin successful', response.data);
-      // For example:
-      // localStorage.setItem('token', response.data.token);
-      // navigate('/dashboard');
-      
+      await login(email, password)
     } catch (err) {
-      setError(err.response?.data?.error || 'Signin failed. Please try again.');
+      setError(err)
     } finally {
       setLoading(false);
     }
@@ -125,7 +69,7 @@ const SignIn = () => {
             <Header/>
     <div className={classes['signin-container']}>
       <h2>Sign In</h2>
-      {error && <div className={classes['error-message']}>{error}</div>}
+      {error && <div className={classes['error-message']}>{error.message || error}</div>}
       <form onSubmit={handleSubmit}>
         <div className={classes['form-group']}>
           <label>Email</label>
