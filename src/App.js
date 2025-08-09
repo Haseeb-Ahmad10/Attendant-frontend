@@ -10,7 +10,6 @@ import ProtectedRoute from './components/Pages/ProtectedRoute';
 
 function App() {
   return (
-    // <React.Fragment>
     <Router>
     <AuthProvider>
      <Routes>
@@ -26,7 +25,6 @@ function App() {
      </Routes>
     </AuthProvider>
     </Router>
-  // </React.Fragment>
   );
 }
 
