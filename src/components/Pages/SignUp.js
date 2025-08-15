@@ -108,9 +108,9 @@ const SignUp = () => {
           {loading ? 'Signing Up...' : 'Sign Up'}
         </button>
       </form>
-      <p>
+      {/* <p>
         Already have an account? <a href="/">Sign In</a>
-      </p>
+      </p> */}
     </div>
     </React.Fragment>
   );
