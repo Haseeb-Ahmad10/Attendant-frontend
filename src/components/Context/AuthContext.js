@@ -41,7 +41,6 @@ export const AuthProvider = ({ children }) => {
 //         }
 //       }).then(response => {
 //         // You might want to update user data here
-//       }).catch(() => {
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout }}>
