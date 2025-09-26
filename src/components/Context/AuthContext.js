@@ -38,7 +38,6 @@ export const AuthProvider = ({ children }) => {
 //       axios.get('http://localhost:3000/api/protected', {
 //         headers: {
 //           Authorization: `Bearer ${token}`
-//         }
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout }}>
