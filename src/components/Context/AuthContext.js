@@ -39,7 +39,6 @@ export const AuthProvider = ({ children }) => {
 //         headers: {
 //           Authorization: `Bearer ${token}`
 //         }
-//       }).then(response => {
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout }}>
