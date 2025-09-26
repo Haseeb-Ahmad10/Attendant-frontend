@@ -40,7 +40,6 @@ export const AuthProvider = ({ children }) => {
 //           Authorization: `Bearer ${token}`
 //         }
 //       }).then(response => {
-//         // You might want to update user data here
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout }}>
