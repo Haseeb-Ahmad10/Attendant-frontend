@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }) => {
     navigate('/');
   }, [setToken, setUser, navigate]);
 
-//   useEffect(() => {
 //     if (token) {
 //       // Verify token and get user data if needed
 //       axios.get('http://localhost:3000/api/protected', {
