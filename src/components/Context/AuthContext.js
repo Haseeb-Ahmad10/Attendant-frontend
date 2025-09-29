@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
 
 //     if (token) {
 //       // Verify token and get user data if needed
-//       axios.get('http://localhost:3000/api/protected', {
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout }}>
