@@ -32,7 +32,6 @@ export const AuthProvider = ({ children }) => {
     navigate('/');
   }, [setToken, setUser, navigate]);
 
-
   return (
     <AuthContext.Provider value={{ user, token, login, logout }}>
       {children}
