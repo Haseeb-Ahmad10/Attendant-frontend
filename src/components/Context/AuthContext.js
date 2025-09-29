@@ -33,7 +33,6 @@ export const AuthProvider = ({ children }) => {
   }, [setToken, setUser, navigate]);
 
 //     if (token) {
-//       // Verify token and get user data if needed
 
   return (
     <AuthContext.Provider value={{ user, token, login, logout }}>
