@@ -10,7 +10,6 @@ const UserDashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('Status');
   const { user, logout } = useAuth()
-  // const navigate = useNavigate();
 
   const attendanceColumns = [
     { id: 'date', label: 'Date' },
