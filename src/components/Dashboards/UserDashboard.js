@@ -27,7 +27,6 @@ const UserDashboard = () => {
     { date: '28/02/2022', status: 'Absent' },
     { date: '28/02/2022', status: 'Absent' },
     { date: '28/02/2022', status: 'Absent' },
-    { date: '27/02/2022', status: 'Present' },
   ];
 
   const filterFn = (row) => {
