@@ -100,7 +100,6 @@ const UserDashboard = () => {
       {/* Pagination Component */}
       <PaginationTable columns={attendanceColumns} rows={attendanceData} filterFn={filterFn}  />
 
-
       {/* Apply for Leave Button */}
       <button className={classes['apply-leave-btn']}>
         APPLY FOR LEAVE +
