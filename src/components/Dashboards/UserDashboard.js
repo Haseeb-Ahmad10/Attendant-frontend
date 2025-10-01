@@ -41,7 +41,6 @@ const UserDashboard = () => {
     return matchesSearch && matchesStatus;
   };
 
-  
   return (
     <div className={classes['attendance-container']}>
       {/* Header */}
