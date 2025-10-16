@@ -1,3 +1,31 @@
+/* label {
+    display:inline-block;
+    border:1px;
+    padding:10px;
+    background-color:#111;
+    position:relative;
+    color:#FFF;
+    width:200px;
+    height:20px;
+}
+label input {
+    -moz-box-shadow: inset -1px -1px 2px #CCC;
+    -webkit-box-shadow: inset -1px -1px 2px #CCC;
+    box-shadow: inset -1px -1px 2px #CCC;
+    border-radius:5px;
+    background-color:#000;
+    color:#FFF;
+    border:none;
+    padding:3px;
+    position:absolute;
+    left:5px;
+    padding:5px;
+    width:200px;
+    height:16px;
+    top:7px; /* This is ((label hight + (padding * 2)) - this height)/2;*/
+             /* e.g. ((20 +  (2 * 10)) - 16)/2 */
+ /* } */ 
+
 /* AttendanceUI.css */
 .attendance-container {
   max-width: 1200px;
