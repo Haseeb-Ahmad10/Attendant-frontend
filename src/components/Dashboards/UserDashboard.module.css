@@ -22,7 +22,7 @@ label input {
     padding:5px;
     width:200px;
     height:16px;
-    top:7px; /* This is ((label hight + (padding * 2)) - this height)/2;*/
+    top:7px; /* This is ((label hight + (padding * 2)) */
  /* } */ 
 
 /* AttendanceUI.css */
