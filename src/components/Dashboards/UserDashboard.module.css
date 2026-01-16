@@ -7,7 +7,7 @@
 /* .inputField {
   width: 100%;
   padding: 10px 15px;
-  border: 1px solid #ccc;                        
+  border: 1px solid                         
                           
              
            
@@ -23,7 +23,7 @@
     
     
          
- /* } */ 
+ /* } */
 
 /* AttendanceUI.css */
 .attendance-container {
@@ -31,7 +31,7 @@
   margin: 0 auto;
   background-color: #f5f7fa;
   min-height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Header Styles */
@@ -196,7 +196,6 @@
   background-color: #f5f5f5;
 }
 
-
 /* Apply for Leave Button */
 .apply-leave-btn {
   position: fixed;
@@ -236,7 +235,7 @@
   transition: all 0.2s;
 }
 
-.logout-btn:hover { 
+.logout-btn:hover {
   background-color: #357abd;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
@@ -247,34 +246,34 @@
   .attendance-container {
     padding: 0;
   }
-  
+
   .header {
     padding: 15px 20px;
   }
-  
+
   .welcome-message {
     margin: 15px 20px;
     padding: 15px;
     flex-direction: column;
     text-align: center;
   }
-  
+
   .past-attendance {
     margin: 15px 20px;
     padding: 20px;
   }
-  
+
   .search-filter {
     flex-direction: column;
     gap: 15px;
   }
-  
+
   .header-cell,
   .date-cell,
   .status-cell {
     padding: 0 15px;
   }
-  
+
   .apply-leave-btn {
     bottom: 20px;
     right: 20px;
