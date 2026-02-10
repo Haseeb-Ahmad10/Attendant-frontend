@@ -1,6 +1,10 @@
 /* label {          
    
-    margin               
+    display: block;
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;               
                              
       
 } */
