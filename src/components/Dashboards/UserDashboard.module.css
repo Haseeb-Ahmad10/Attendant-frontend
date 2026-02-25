@@ -2,7 +2,26 @@
    h1 {        
    canvas { 
    .attendance-container {
-   .header {
+      .header { 
+        .welcome-message { 
+          .past-attendance { 
+            .search-filter { 
+              .search-section { 
+                .search-input { 
+              }  
+            }  
+            .filter-section { 
+              .filter-container { 
+                .status-filter { 
+                }  
+                .filter-btn { 
+                 }  
+              }  
+             }  
+           }  
+         }  
+       }  
+     }
    
     {     
     }  
