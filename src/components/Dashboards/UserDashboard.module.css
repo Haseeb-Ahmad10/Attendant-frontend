@@ -1,5 +1,10 @@
 /* 
-.user-dashboard { 
+.user-dashboard {
+        h1 {
+          color: blue;
+         font-size: 24px;
+        text-align: center;
+        }
                       
 
 /* } */
