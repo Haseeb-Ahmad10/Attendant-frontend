@@ -1,5 +1,28 @@
 /* 
 .user-dashboard {
+      .parent-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh; /* Takes full screen height 
+      }
+
+      .custom-button {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(167, 119, 227, 0.4);
+}
    
 }
 
