@@ -21,7 +21,7 @@
 
 .custom-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(167, 119, 227, 0.4);
+    
 }
    
 }
